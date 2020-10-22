@@ -1,0 +1,19 @@
+img {
+
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+  	width: 50%;
+}
+
+h1 {
+
+	text-align: center;
+}
+
+/*@media only screen and (max-width: 812px) {
+  body {
+
+    max-width: 100% ;
+    transform: rotate(270deg);
+  }*/

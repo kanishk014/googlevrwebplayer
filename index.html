@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+    <head>
+        <title>DoorsTour Test</title>
+         <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <script src="https://storage.googleapis.com/vrview/2.0/build/vrview.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+
+    </head>
+    <body>
+        <h1> DoorsTour 360 degree tour using Google VR</h1> 
+        <div id='vrview'></div>
+        <img src="https://i.ibb.co/w4DTRr3/door.png" width="300" height="100"> 
+        <script type="text/javascript">
+            var vrView;
+            window.addEventListener('load', onVrViewLoad);
+
+
+            function onVrViewLoad() {
+                // Selector '#vrview' finds element with id 'vrview'.
+                vrView = new VRView.Player('#vrview', {
+                    image: 'https://i.ibb.co/QdDb6gW/sample1.jpg',
+                    width: '100%',
+                    height: '450px',
+                    is_stereo: false,
+                });
+
+                vrView.on('click', onHotspotClick);
+                vrView.on('getposition', onGetPosition);
+
+            
+                vrView.on('ready',function(){
+                vrView.addHotspot('dining-room', {
+                pitch: 10, // In degrees. Up is positive.
+                yaw: 45, // In degrees. To the right is positive.
+                radius:   0.05, // Radius of the circular target in meters.
+                distance: 2, // Distance of target from camera in meters.
+    });          
+});             
+                vrView.on('ready',function(){
+                vrView.addHotspot('lobby', {
+                pitch: 10, // In degrees. Up is positive.
+                yaw: 75, // In degrees. To the right is positive.
+                radius: 0.05, // Radius of the circular target in meters.
+                distance: 2, // Distance of target from camera in meters.
+    });
+});
+                vrView.on('click', function(event) {
+    			if (event.id == 'dining-room') {
+        		vrView.setContent({
+            	image: 'https://i.ibb.co/3frd9k1/sample3.jpg',
+            	width: '100%',
+                height: '450px',
+            	is_stereo: false,
+        });
+    }
+});
+}				
+				
+            function onGetPosition(e) {
+                console.log('position',e.id);
+            }
+
+            function onHotspotClick(e) {
+                
+                vrView.getPosition();
+                console.log('onHotspotClick', e.id);
+            }
+        </script>
+    </body>
+</html>
