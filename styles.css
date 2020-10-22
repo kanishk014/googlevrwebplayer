@@ -1,14 +1,17 @@
-img {
+#vrview {
+  position: relative;
+}
 
-	display: block;
-  	margin-left: auto;
-  	margin-right: auto;
-  	width: 50%;
+img {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  width: 350px;
+  height: 65px;
 }
 
 h1 {
-
-	text-align: center;
+  text-align: center;
 }
 
 /*@media only screen and (max-width: 812px) {
